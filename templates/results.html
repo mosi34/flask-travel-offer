@@ -1,0 +1,38 @@
+{% extends 'mainTemplate.html' %}
+
+{% block container %}
+
+<!-- start of card -->
+{% for item in data %}
+<div class="row">
+    <!-- <div class="col"></div> -->
+    <div class="col">
+        <div class="card mx-auto" style="width:500px">
+            <img class="card-img-top" src="{{item['image']}}" alt="{{item['tourname']}}">
+            <div class="card-body">
+                <h5 class="card-title">تور {{item['tourname']}}</h5>
+                <span class="badge badge-success">Success</span>
+                <!-- <p class="card-text">
+                            متن مورد نظر اینجا قرار خواهد گرفت
+                        </p> -->
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">قیمت : {{item['price']}} تومان</li>
+                <li class="list-group-item">قیمت کل : {{item['sumPrice']}} تومان</li>
+                <li class="list-group-item">تاریخ حرکت : {{'/'.join(item['date'])}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="{{item['link']}}" class="btn btn-primary stretched-link">ثبت نام</a>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col"></div> -->
+</div>
+{% endfor %}
+
+<!-- end of card -->
+
+</div>
+
+
+{% endblock %}

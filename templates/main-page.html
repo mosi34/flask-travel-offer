@@ -1,0 +1,88 @@
+{% extends 'mainTemplate.html' %}
+
+{% block container %}
+<header class="p-3 d-flex justify-content-center">
+    <h1>
+        پیشنهاد هوشمند سفر
+    </h1>
+</header>
+<section class="mx-auto">
+    <span class="shadow border border-secondary mx-auto w-25 p-4 d-flex justify-content-around bg-light">
+        <form method="POST" action="{{ url_for('results') }}">
+            <div class="form-group">
+                <label for='selectcity'>کجا هستی؟</label><br>
+                <select name="whereYouAre" class="custom-select vazir" id='selectcity' aria-describedby="cityinputhelp">
+                    <option value="None" class="vazir">لطفا یک شهر انتخواب کنید</option>
+                    <option value="karaj" class="vazir">کرج</option>
+                    <option value="tehran" class="vazir" disabled>تهران</option>
+                    <option value="mashhad" disabled>مشهد</option>
+                    <option value="yazd" disabled>یزد</option>
+                    <option value="qom" disabled>قم</option>
+                </select>
+                <small id="cityinputhelp" class="form-text text-muted">از کدام شهر قصد آغاز مسافرت دارید</small>
+                <br>
+                <label for="howmanypeople">چند نفرین</label><br>
+                <input name="persons" class="form-control" id='howmanypeople' type="number"
+                    aria-describedby="intinputhelp" value="1">
+                <small id="intinputhelp" class="form-text text-muted">با چند نفر قصد مسافرت دارید؟</small>
+
+            </div>
+
+            <div class="form-group ">
+                <label for="moneyrange">
+                    نفری چقدر بودجه دارین؟
+                </label>
+
+                <div class="form-check">
+                    <label class="form-check-label" for="price1">
+                        کمتر از 100 هزار تومان
+                    </label>
+                    <input class="form-check-input mr-2" type="radio" name="price" id="price1" value="0-100" checked>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="price2">
+                        بین 100 تا 200 هزار تومان
+                    </label>
+                    <input class="form-check-input mr-2" type="radio" name="price" id="price2" value="100-200">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="price3">
+                        بین 200 تا 400 هزار تومان
+                    </label>
+                    <input class="form-check-input mr-2" type="radio" name="price" id="price3" value="200-400">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="price4">
+                        بین 400 تا 800 هزار تومان
+                    </label>
+                    <input class="form-check-input mr-2" type="radio" name="price" id="price4" value="400-800">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="price5">
+                        از 800 هزار تومان به بالا
+                    </label>
+                    <input class="form-check-input mr-2" type="radio" name="price" id="price5" value="800-3000">
+
+                </div>
+                <div class=" d-flex justify-content-center p-4">
+                    <button type="submit" class="btn btn-primary w-75 p-2">برام جستجو کن</button>
+                </div>
+            </div>
+        </form>
+    </span>
+
+</section>
+
+
+<script src="{{ url_for('static', filename='js/main.js') }}" async defer></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"
+    integrity="sha384-a9xOd0rz8w0J8zqj1qJic7GPFfyMfoiuDjC9rqXlVOcGO/dmRqzMn34gZYDTel8k"
+    crossorigin="anonymous"></script>
+
+{% endblock %}
